@@ -1,32 +1,52 @@
 from enum import Enum
+import numpy as np
+
 class Color(Enum):
     RED = 1
     BLUE = 2
     NONE = 0
 
-class Game():
-    def __init__(self):
+class Game:
+    def __init__(self, width, height, connectX):
         self.board = []
-        self._width = 7
-        self._height = 6
-        self._connectX = 4
+        self._width = width
+        self._height = height
+        self._connectX = connectX
         self.player_turn = Color.RED
         self.game_won = False
+        self.game_over = False
+        self._turns = 0
 
         for i in range(self._width):
             self.board.append([])
+
+    def reset(self):
+        self.player_turn = Color.RED
+        self.game_won = False
+        self.board = [[] for i in range(self._width)]
+        self._turns = 0
+        self.game_over = False
 
     def play_move(self, col):
         if (self.game_won):
             print("bitches there was a winner")
             return 
         if (not self.check_valid_move(col)):
+            print(col)
+            self.print_game_state()
+            raise Exception("Invalid move played!")
             return
         
         self.board[col].append(self.player_turn)
+        self._turns += 1
 
         if (self.check_game_winner(col)):
             self.game_won = True 
+            self.game_over = True
+            return
+
+        if (self.check_game_over()):
+            self.game_over = True
             return
         
         if (self.player_turn == Color.RED):
@@ -34,6 +54,12 @@ class Game():
         else:
             self.player_turn = Color.RED
 
+    def check_game_over(self):
+        for col in self.board:
+            if len(col) < self._height:
+                return False
+        return True
+    
     def check_valid_move(self, col):
         if (col < 0 or col >= self._width):
             return False
@@ -74,6 +100,8 @@ class Game():
         for cond in conds:
             i+=1
             if (self.check_winner(col, vert, cond)):
+                #print(i)
+                #print(self.get_game_state())
                 return True
 
         return False 
@@ -92,9 +120,28 @@ class Game():
         
         return False
 
+    def get_game_state(self):
+        #print(self.board)
+        state = np.zeros((self._height, self._width, 1))
+        for col in range(0, self._width):
+            for row in range(0, self._height):
+                #print(col)
+                if row >= len(self.board[col]):
+                    break
+                else:
+                    enum_to_num = {
+                        Color.RED : 1,
+                        Color.BLUE : 2, 
+                        Color.NONE : 0
+                    }
+
+                    state[self._height - 1 - row][col] = enum_to_num[(self.board[col][row])]
+
+        return state
+
 
     def print_game_state(self):
-        for row in range(self._height, -1, -1):
+        for row in range(self._height -1, -1, -1):
             for col in range(0, self._width):
                 if row >= len(self.board[col]):
                     print("?", end=' ')
@@ -107,6 +154,7 @@ class Game():
 
             print('\n')
 
+'''
 yeet = Game()
 while (not yeet.game_won):
     print("it is " + str(yeet.player_turn))
@@ -116,3 +164,4 @@ while (not yeet.game_won):
     yeet.print_game_state()
     print(yeet.game_won)
 print(yeet.game_won)
+'''
