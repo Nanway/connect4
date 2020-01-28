@@ -45,7 +45,7 @@ class Brain:
         model.compile(optimizer=Adam(lr=lr), loss='mean_squared_error', metrics=['accuracy'])
         return model
 
-    def train(self, x, y, bs, epochs=5):
+    def train(self, x, y, bs, epochs=3):
         self.model.fit(x,y, batch_size=bs, epochs=epochs)
         self.model.save(self.model_path)
 

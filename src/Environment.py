@@ -25,10 +25,6 @@ class Environment:
         self.random_agent = random_agent
 
         while True:
-            if (self.num_games == 2000):
-                self.blue_man = mini_max
-            elif (self.num_games == 10000):
-                break
             self.curr_agent = self.red_man
             print("Starting game number {}".format(self.num_games + 1))
             self.game.reset()
@@ -38,7 +34,7 @@ class Environment:
             print("Final game state")
             self.game.print_game_state()
 
-            print("Game ended with {} turns. Red wins: {}. Blue wins: {}. Epsilon: {}".format(self.game._turns, self.num_red_wins, self.num_blue_wins, self.red_man.epsilon))
+            print("Game ended with {} turns. Red wins: {}. Blue wins: {}. EpsilonR: {}. EpsilonB: {}".format(self.game._turns, self.num_red_wins, self.num_blue_wins, self.red_man.epsilon, self.blue_man.epsilon))
             if (self.num_games % NUM_GAMES_TILL_REPLAY == 0):
                 end_rewards = [self.WIN_R, self.LOSE_R, self.DRAW_R]
                 print("Training agent. Num red wins {}. Num blue wins {}".format(self.num_red_wins, self.num_blue_wins))
@@ -330,9 +326,9 @@ class Environment:
         return states, target_moves
 
 if __name__ == "__main__":
-    LAMBDA = 0.000008
-    MEMORY_SIZE = 100000
-    TRAINING_SIZE = 75000
+    LAMBDA = 0.000001
+    MEMORY_SIZE = 10000
+    TRAINING_SIZE = 7500
     EXPERIENCE_BS = 300
     DEBUG_MODE = False
     if (DEBUG_MODE):
@@ -340,24 +336,24 @@ if __name__ == "__main__":
         MIN_E = 0
         NUM_GAMES_TO_RERANDOM = 1
     else:
-        MAX_E = 0.15
+        MAX_E = 0.20
         MIN_E = 0.1
-        NUM_GAMES_TO_RERANDOM = 1000
+        NUM_GAMES_TO_RERANDOM = 100000
 
     GAMMA = 0.85
     ALPHA = 0.2
-    LR = 0.0003
+    LR = 0.001
     ROWS = 6
     COLS = 7
-    NUM_GAMES_TILL_REPLAY = 150
+    NUM_GAMES_TILL_REPLAY = 100
 
     big_brain = Brain(6,7, model_path='red_brain_ddqn_fat.h5')
-    small_brain = Brain(6,7, model_path='blu_brain_ddqn_4.h5')
+    small_brain = Brain(6,7, model_path='blu_brain_ddqn_fat.h5')
     red_agent = Agent(big_brain, MEMORY_SIZE, MIN_E, MAX_E, LAMBDA, ALPHA, GAMMA, EXPERIENCE_BS, TRAINING_SIZE,  COLS)
     blue_agent = Agent(small_brain, MEMORY_SIZE, MIN_E, MAX_E, LAMBDA, ALPHA, GAMMA, EXPERIENCE_BS, TRAINING_SIZE, COLS)
     random_agent = Agent(None, 0, 1, 1, 0, 0, 0 , 0, 0, COLS)
     random_agent.shouldValidate = lambda : False
-    mini_max = Minimax(2)
-    gilad = GiladrielAgent()
+    #mini_max = Minimax(2)
+    #gilad = GiladrielAgent()
     env = Environment()
-    env.run(red_agent, gilad, random_agent, mini_max=mini_max)
+    env.run(red_agent, blue_agent, random_agent)
