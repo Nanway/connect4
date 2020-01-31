@@ -29,7 +29,6 @@ class Game:
 
     def play_move(self, col):
         if (self.game_won):
-            print("bitches there was a winner")
             return 
         if (not self.check_valid_move(col)):
             print(col)
@@ -100,8 +99,6 @@ class Game:
         for cond in conds:
             i+=1
             if (self.check_winner(col, vert, cond)):
-                #print(i)
-                #print(self.get_game_state())
                 return True
 
         return False 
@@ -121,11 +118,9 @@ class Game:
         return False
 
     def get_game_state(self):
-        #print(self.board)
         state = np.zeros((self._height, self._width, 1))
         for col in range(0, self._width):
             for row in range(0, self._height):
-                #print(col)
                 if row >= len(self.board[col]):
                     break
                 else:
@@ -153,15 +148,3 @@ class Game:
                     print(conversion[self.board[col][row]], end=' ')
 
             print('\n')
-
-'''
-yeet = Game()
-while (not yeet.game_won):
-    print("it is " + str(yeet.player_turn))
-    print("Player a move by entering the column index:")
-    col = input("Enter column index: ")
-    yeet.play_move(int(col))
-    yeet.print_game_state()
-    print(yeet.game_won)
-print(yeet.game_won)
-'''

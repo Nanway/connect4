@@ -4,7 +4,8 @@ from Agent import Agent
 import numpy as np
 
 class Minimax(Agent):
-    """ Minimax object that takes a current connect four board state
+    """ Minimax object that takes a current connect four board state -> copied off the internet somewhere and hammered to do what i want it to do
+        https://github.com/erikackermann/Connect-Four/blob/master/minimax.py
     """
     
     colors = [1, 2]

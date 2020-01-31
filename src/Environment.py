@@ -3,7 +3,6 @@ from Agent import *
 from Brain import *
 from Memory import *
 from MiniMax import *
-from Gilad import *
 
 class Environment:
     # reward scheme: 100 for win, -100 for loss, 50 for draw
@@ -52,7 +51,7 @@ class Environment:
                     self.validate(self.blue_man)
 
 
-            # reset randomness every now and again to force exploration
+            # play games against random agent to validate
             if (self.num_games % NUM_GAMES_TO_RERANDOM == 0):
                 print("Playing red against random agent")
                 if (self.red_man.shouldValidate()):
@@ -354,6 +353,5 @@ if __name__ == "__main__":
     random_agent = Agent(None, 0, 1, 1, 0, 0, 0 , 0, 0, COLS)
     random_agent.shouldValidate = lambda : False
     #mini_max = Minimax(2)
-    #gilad = GiladrielAgent()
     env = Environment()
     env.run(red_agent, blue_agent, random_agent)
