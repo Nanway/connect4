@@ -1,5 +1,12 @@
 # connect4
 
+Directory structure:
+- Environment.py : entry point and does the training/ self playing
+- Agent.py : RL agent 
+- CN4Game.py : Logic for connect 4 game
+- Brain.py : DL neural network
+- Memory.py : Stores game states
+
 To get a grasp of reinforcement learning I decided to train a model to play connect4 against me.
 
 The models trained okay and are able to learn to block connecting 4 in a column. Sometimes they are able to do diagonals and rows, but primarily skew towards columns. The architecture was taken from other ones online. See here for an iOS app that was used to train and play them:
