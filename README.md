@@ -31,5 +31,5 @@ Biggest learnings/ things I should have done:
 - Adding better metrics and visualisations to the model training to see how they are performing
 - Essentially I didn't know how to finetune my models in a reinforcement learning paradigm and I think more structure to the training process might have helped. 
 
-Overall it was a good learning experience and I did create a model that was decent (advanced beginner - see the iOS repo for demo). There is definitely lots of room for improvement (the codebase is a mess as well) and if I have the time/ resources I may train the model for longer. 
+Overall it was a good learning experience and I did create a model that was decent (gives me a bit of trouble trying to beat it after like 2.5 million training games). There is definitely lots of room for improvement (the codebase is a mess as well) and if I have the time/ resources I may train the model for longer. 
 - 
