@@ -13,6 +13,10 @@ The models trained okay and are able to learn to block connecting 4 in a column.
 
 https://github.com/Nanway/connect4_ios
 
+Play against it on web here: https://connect4-rl.herokuapp.com/
+
+Associated front end repo: https://github.com/Nanway/connect4-frontend
+
 I used double deep Q learning with offline learning (I experimented with how many games before I should replay in memory). The reason I chose double deep Q learning was so to avoid confirmation bias in learning.
 
 In terms of training I tried a variety of strategies:
