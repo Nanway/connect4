@@ -1,10 +1,21 @@
 # connect4
 
+Directory structure:
+- Environment.py : entry point and does the training/ self playing
+- Agent.py : RL agent 
+- CN4Game.py : Logic for connect 4 game
+- Brain.py : DL neural network
+- Memory.py : Stores game states
+
 To get a grasp of reinforcement learning I decided to train a model to play connect4 against me.
 
 The models trained okay and are able to learn to block connecting 4 in a column. Sometimes they are able to do diagonals and rows, but primarily skew towards columns. The architecture was taken from other ones online. See here for an iOS app that was used to train and play them:
 
 https://github.com/Nanway/connect4_ios
+
+Play against it on web here: https://connect4-rl.herokuapp.com/
+
+Associated front end repo: https://github.com/Nanway/connect4-frontend
 
 I used double deep Q learning with offline learning (I experimented with how many games before I should replay in memory). The reason I chose double deep Q learning was so to avoid confirmation bias in learning.
 
@@ -23,7 +34,7 @@ Trials and tribulations:
 - Training against a minimax agent was able to get the model to get better faster. But it learnt how not to lose but didn't learn how to win. Also the minimax agents I took from the internet had bugs and the agent ended up exploiting its bugs to win (lol).
 - Training against another bot added a lot of noise to the dataset due to the high probability of random/ ill-informed moves, meaning that the model would reach a point where it could've won but chose another move instead
 - Exploration vs Exploitation trade off - randomness in training data vs results that fail to generalise. Wasn't sure how to handle it and the best way of doing it. I annealed the epsilon over time and made it reset after a large amount of games in case it hit a local minima but at the same time I really found it hard to structure and quantify the results since reinforcement learning is a bit different to normal deep learning. 
-- I feel like to get better results the model simply just needs to train longer but I didn't have the time nor resources. Overall the best on trained on around 500k games? I could have added minor things to help it train such as noticing when it has a winning opportunity and feeding the model extra data to say that in state X, action Y would have led to a win. But this defeats the whole purpose of reinforcement learning, I want the model to know as little of the game state as it can and want it to figure it out, don't want to give it too much of an idea of how to win. 
+- I feel like to get better results the model simply just needs to train longer but I didn't have the time nor resources. I could have added minor things to help it train such as noticing when it has a winning opportunity and feeding the model extra data to say that in state X, action Y would have led to a win. But this defeats the whole purpose of reinforcement learning, I want the model to know as little of the game state as it can and want it to figure it out, don't want to give it too much of an idea of how to win. 
 - I randomly chose the reward metrics and maybe I could have fine tuned this. 
 
 Biggest learnings/ things I should have done:
@@ -31,5 +42,5 @@ Biggest learnings/ things I should have done:
 - Adding better metrics and visualisations to the model training to see how they are performing
 - Essentially I didn't know how to finetune my models in a reinforcement learning paradigm and I think more structure to the training process might have helped. 
 
-Overall it was a good learning experience and I did create a model that was decent (advanced beginner - see the iOS repo for demo). There is definitely lots of room for improvement (the codebase is a mess as well) and if I have the time/ resources I may train the model for longer. 
+Overall it was a good learning experience and I did create a model that was decent (gives me a bit of trouble trying to beat it after like 2.5 million training games). There is definitely lots of room for improvement (the codebase is a mess as well) and if I have the time/ resources I may train the model for longer. 
 - 
