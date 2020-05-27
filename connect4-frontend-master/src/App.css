@@ -1,0 +1,109 @@
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+table {
+  margin: 0 auto;
+  border-spacing: 0px 0px;
+}
+
+.icon {
+  background-color: #007bff; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  margin: 10px;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: none !important;
+}
+
+.cell {
+  height: 10vw;
+  width: 10vw;
+  background-color: #007bff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.circle {
+  height: 15px;
+  width: 15px;
+  border: 1px solid #000;
+  border-radius: 100px;
+}
+
+.circles {
+  margin: -40px 0 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.red-sm {
+  background-color: red;
+}
+
+.yellow-sm {
+  background-color: yellow;
+}
+
+.message {
+  text-align: center;
+  font-size: 17px;
+}
+
+.white {
+  height: 9vw;
+  width: 9vw;
+  background-color: #FFF;
+  border-radius: 100px;
+}
+
+.red {
+  height: 9vw;
+  width: 9vw;
+  background-color: red;
+  border-radius: 100px;
+  transition: background-color 0.5s;
+  margin: auto;
+}
+
+.yellow {
+  height: 9vw;
+  width: 9vw;
+  background-color: yellow;
+  border-radius: 100px;
+  transition: background-color 0.51s;
+  margin: auto;
+}
+
+@media screen and (min-width: 800px) {
+  .yellow {
+    height: 60px;
+    width: 60px;
+  }
+
+  .red {
+    height: 60px;
+    width: 60px;
+  }
+
+  .white {
+    height: 60px;
+    width: 60px;
+  }
+
+  .cell {
+    height: 70px;
+    width: 70px;
+  }
+}
