@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zzt-Sc-biR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="aip-1f-cPu">
+            <objects>
+                <viewController id="WYt-Ia-NBX" customClass="GameViewController" customModule="connect4" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Abe-0f-ObJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qOz-1A-L46" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2026" y="-130"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yKK-YD-kdV">
+            <objects>
+                <navigationController id="zzt-Sc-biR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3oY-hi-WI1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ud7-lc-Q0T" kind="relationship" relationship="rootViewController" id="Kqc-3Q-0T8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4B-Nu-Qzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="-101"/>
+        </scene>
+        <!--Main Menu-->
+        <scene sceneID="tyc-AO-KDP">
+            <objects>
+                <viewController id="Ud7-lc-Q0T" customClass="HomeViewController" customModule="connect4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkF-Tc-fNz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUG-B3-uw3">
+                                <rect key="frame" x="119.5" y="121" width="175" height="71"/>
+                                <color key="backgroundColor" red="0.30799450526287631" green="0.67038532385517902" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="LsB-cS-OER"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Play">
+                                            <attributes>
+                                                <font key="NSFont" size="48" name="AmericanTypewriter-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="WYt-Ia-NBX" kind="show" id="42T-cY-cNI"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eRN-a3-rj0">
+                                <rect key="frame" x="20" y="230" width="374" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="gPU-60-d1R"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameSettingsCell" id="fwf-lu-1ox" customClass="GameSettingsCell" customModule="connect4" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fwf-lu-1ox" id="awX-0O-FHM">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eRN-a3-rj0" firstAttribute="centerX" secondItem="drf-dy-HsG" secondAttribute="centerX" id="7fK-vB-v8n"/>
+                            <constraint firstItem="eRN-a3-rj0" firstAttribute="top" secondItem="BUG-B3-uw3" secondAttribute="bottom" constant="38" id="QgS-lV-tVu"/>
+                            <constraint firstItem="BUG-B3-uw3" firstAttribute="top" secondItem="drf-dy-HsG" secondAttribute="top" constant="33" id="aOy-NR-f8C"/>
+                            <constraint firstItem="BUG-B3-uw3" firstAttribute="centerX" secondItem="drf-dy-HsG" secondAttribute="centerX" id="uL8-HH-Ut3"/>
+                            <constraint firstItem="eRN-a3-rj0" firstAttribute="leading" secondItem="HkF-Tc-fNz" secondAttribute="leadingMargin" id="uxp-SR-iMz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="drf-dy-HsG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Main Menu" id="WQ0-Sr-ZyL"/>
+                    <connections>
+                        <outlet property="playButton" destination="BUG-B3-uw3" id="D9n-jt-Bah"/>
+                        <outlet property="settingsTableView" destination="eRN-a3-rj0" id="1UY-tZ-3XC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZeW-7v-W2P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995.65217391304361" y="-117.1875"/>
+        </scene>
+    </scenes>
+</document>

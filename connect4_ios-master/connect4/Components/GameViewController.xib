@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameViewController" customModule="connect4" customModuleProvider="target">
+            <connections>
+                <outlet property="gameBoard" destination="0Vv-qp-XoP" id="r1k-c6-MiP"/>
+                <outlet property="playerTurnImage" destination="dPa-Ra-rqO" id="hEu-nz-Qjx"/>
+                <outlet property="playerTurnLabel" destination="pMN-GG-uGa" id="sRx-Ws-TqF"/>
+                <outlet property="resetButton" destination="JrU-rv-hd0" id="uGs-5w-oag"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="bF9-6V-BKB">
+                    <rect key="frame" x="79" y="54" width="217" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMN-GG-uGa">
+                            <rect key="frame" x="0.0" y="0.0" width="97" height="45"/>
+                            <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="36"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dPa-Ra-rqO">
+                            <rect key="frame" x="172" y="0.0" width="45" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="dPa-Ra-rqO" secondAttribute="height" multiplier="1:1" id="OJW-Nb-Cxk"/>
+                                <constraint firstAttribute="width" constant="45" id="cmI-j2-g1N"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrU-rv-hd0">
+                    <rect key="frame" x="162.66666666666666" y="430.33333333333331" width="50" height="46.333333333333314"/>
+                    <color key="backgroundColor" red="0.3079945053" green="0.67038532390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="JrU-rv-hd0" secondAttribute="height" multiplier="1:1" id="1D9-wG-GyQ"/>
+                        <constraint firstAttribute="height" constant="50" id="pWD-4K-lhV"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="play" catalog="system"/>
+                    <connections>
+                        <action selector="resetButtonTapped:" destination="-1" eventType="touchUpInside" id="euO-3u-1LY"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0Vv-qp-XoP">
+                    <rect key="frame" x="10" y="109" width="355" height="304.33333333333326"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="0Vv-qp-XoP" secondAttribute="height" multiplier="7:6" id="4PK-hE-5zu"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="flO-rF-fZs"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0Vv-qp-XoP" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="0Tc-MD-edY"/>
+                <constraint firstItem="0Vv-qp-XoP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" priority="750" constant="10" id="16e-fQ-50d"/>
+                <constraint firstItem="JrU-rv-hd0" firstAttribute="top" secondItem="0Vv-qp-XoP" secondAttribute="bottom" constant="15" id="2tn-0b-y3t"/>
+                <constraint firstItem="bF9-6V-BKB" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="DmF-2u-8Fw"/>
+                <constraint firstItem="0Vv-qp-XoP" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="LP4-Uw-PM0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JrU-rv-hd0" secondAttribute="bottom" constant="10.000000000000114" id="hUP-Uf-dub"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="JrU-rv-hd0" secondAttribute="bottom" priority="750" constant="10" id="hqb-Hh-aDq"/>
+                <constraint firstItem="0Vv-qp-XoP" firstAttribute="top" secondItem="bF9-6V-BKB" secondAttribute="bottom" constant="10" id="kcv-Un-hPf"/>
+                <constraint firstItem="0Vv-qp-XoP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="vdh-Zu-ht4"/>
+                <constraint firstItem="bF9-6V-BKB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="wO3-ex-lkE"/>
+                <constraint firstItem="JrU-rv-hd0" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="wU7-Zs-ejj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="130.04926108374386" y="111.2"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="play" catalog="system" width="58" height="64"/>
+    </resources>
+</document>

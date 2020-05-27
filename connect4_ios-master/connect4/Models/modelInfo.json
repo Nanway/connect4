@@ -1,0 +1,64 @@
+[
+    {
+        "modelName" : "Gen 1B",
+        "modelPath" : "350k",
+        "type" : "Blue"
+    },
+    {
+        "modelName" : "Gen 2B",
+        "modelPath" : "500k",
+        "type" : "Blue"
+    },
+    {
+        "modelName" : "Gen 3B",
+        "modelPath" : "600k",
+        "type" : "Blue"
+    },
+    {
+        "modelName" : "Gen 1R",
+        "modelPath" : "200k",
+        "type" : "Red"
+    },
+    {
+        "modelName" : "Gen 2R",
+        "modelPath" : "minimax_v5",
+        "type" : "Red"
+    },
+    {
+        "modelName" : "Gen 3R",
+        "modelPath" : "x_trained_v2",
+        "type" : "Red"
+    },
+    {
+        "modelName" : "Gen 4R",
+        "modelPath" : "best_validation",
+        "type" : "Red"
+    },
+    {
+        "modelName" : "Gen 5R",
+        "modelPath" : "final",
+        "type" : "Red"
+    },
+    {
+    
+        "modelName" : "Gen 6R",
+        "modelPath" : "1m",
+        "type" : "Red"
+    },
+    {
+        "modelName" : "Gen 4B",
+        "modelPath" : "1m",
+        "type" : "Blue"
+    },
+    {
+    
+        "modelName" : "Gen 7R",
+        "modelPath" : "2m",
+        "type" : "Red"
+    },
+    {
+        "modelName" : "Gen 5B",
+        "modelPath" : "2m",
+        "type" : "Blue"
+    }
+]

@@ -1,0 +1,5 @@
+platform :ios, '13.0'
+target 'connect4' do
+    use_frameworks!
+    pod 'TensorFlowLiteSwift'
+  end
