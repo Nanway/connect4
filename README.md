@@ -7,15 +7,12 @@ Directory structure:
 - Brain.py : DL neural network
 - Memory.py : Stores game states
 
-To get a grasp of reinforcement learning I decided to train a model to play connect4 against me.
+- There is also an iOS and front end folder for the code I used to deploy the model as a web application and an iOS application. 
 
-The models trained okay and are able to learn to block connecting 4 in a column. Sometimes they are able to do diagonals and rows, but primarily skew towards columns. The architecture was taken from other ones online. See here for an iOS app that was used to train and play them:
-
-https://github.com/Nanway/connect4_ios
+To get a grasp of reinforcement learning I decided to train a model to play connect4 against me. They play fairly well and can beat some of my unsuspecting friends.
 
 Play against it on web here: https://connect4-rl.herokuapp.com/
 
-Associated front end repo: https://github.com/Nanway/connect4-frontend
 
 I used double deep Q learning with offline learning (I experimented with how many games before I should replay in memory). The reason I chose double deep Q learning was so to avoid confirmation bias in learning.
 
